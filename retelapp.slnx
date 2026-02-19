@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Apps/Apps.csproj" />
+  <Project Path="Apis/Apis.csproj" />
+  <Project Path="Domains/Domains.csproj" />
+  <Project Path="Infras/Infras.csproj" />
+</Solution>
