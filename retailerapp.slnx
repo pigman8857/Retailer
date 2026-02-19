@@ -3,4 +3,6 @@
   <Project Path="Apis/Apis.csproj" />
   <Project Path="Domains/Domains.csproj" />
   <Project Path="Infras/Infras.csproj" />
+  <Project Path="Tests/Apps.Tests/Apps.Tests.csproj" />
+  <Project Path="Tests/Domains.Tests/Domains.Tests.csproj" />
 </Solution>
