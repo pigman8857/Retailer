@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
   </ItemGroup>
 
@@ -14,6 +15,11 @@
     <ProjectReference Include="../Domains/Domains.csproj" />
     <ProjectReference Include="../Infras/Infras.csproj" />
     <ProjectReference Include="..\Apps\Apps.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BuilderSetup/" />
+    <Folder Include="Utils/" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,18 @@
 @retelapi_HostAddress = http://localhost:5208
 
-GET {{retelapi_HostAddress}}/weatherforecast/
+###
+
+GET {{retelapi_HostAddress}}/user/
 Accept: application/json
 
 ###
+
+GET {{retelapi_HostAddress}}/secure-data/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyX2lkXzEyMyIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTc3MTUwMjg1OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjA4IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjA4In0.Hg-3ilHZTDRTVKrALaXWQkRY5Q3IEDECJLoIc-Qwgu8
+Accept: application/json
+
+
+###
+
+POST {{retelapi_HostAddress}}/user/login
+Accept: application/json
