@@ -1,6 +1,6 @@
 
 
-using Apis.Utils;
+using Apis.Dtos;
 using Apps.Interfaces;
 
 public static class UserEndpoints
@@ -17,14 +17,12 @@ public static class UserEndpoints
     .WithName("GetUser");
 
 
-    app.MapPost("/user/login", (Utils util, IConfiguration config, ITestService testService) =>
+    app.MapPost("/user/login", (LoginRequestDto loginRequest, IUserService userService) =>
     {
-      testService.SaySomething();
+      userService.Authen(loginRequest.Username, loginRequest.Password);
+      // Console.WriteLine(token);
 
-      string token = util.GenerateToken(config);
-      Console.WriteLine(token);
-
-      return token;
+      // return token;
     })
     .WithName("LoginUser");
   }

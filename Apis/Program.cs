@@ -4,16 +4,28 @@ using Apps.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Apis.BuilderSetup;
-using Apis.Utils;
+using Infras.Interfaces;
+using Infras.Identity;
+using Infras.Dbcontext;
+using Infras.Repositories.Interfaces;
+using Infras.Repositories;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<ITestService, TestService>();
-builder.Services.AddSingleton<Utils>();
+builder.Services.AddScoped<IUserService, IUserService>();
 // Add Authentication Services by calling your custom extension method. If not then Program.cs will broated
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddDbContext<RetailerContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddSingleton<IPasswordService, PasswordHashingService>();
+builder.Services.AddSingleton<IIdentityService, JwtTokenGenerator>();
 
 var app = builder.Build();
 
